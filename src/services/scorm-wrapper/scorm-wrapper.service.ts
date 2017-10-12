@@ -58,7 +58,8 @@
  ** CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  **
  *********************************************************************************/
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { WindowRef } from '../window-ref';
 
 // export class ScormWindow extends Window {
 //   public API: object;
@@ -79,6 +80,10 @@ export class ScormWrapperService {
   private API: object = null;
   private scormVersions = ['Auto', '1.2', '2004'];
   private win: ScormWindow;
+
+  constructor(private windowRef: WindowRef) {
+    this.win = windowRef.nativeWindow;
+  }
 
   public setAPIVersion(scormVersion: string) {
 

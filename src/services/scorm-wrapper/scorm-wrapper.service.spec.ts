@@ -1,6 +1,7 @@
 import {Injector} from '@angular/core';
 import { ScormWrapperService } from './scorm-wrapper.service';
 import {getTestBed, TestBed} from '@angular/core/testing';
+import { WindowRef } from '../window-ref';
 
 describe('ScormWrapperService', () => {
   let injector: Injector;
@@ -10,7 +11,7 @@ describe('ScormWrapperService', () => {
     TestBed.configureTestingModule({
       providers: [
         ScormWrapperService,
-        {provide: Window, useValue: window}
+        WindowRef
       ]
     });
     injector = getTestBed();

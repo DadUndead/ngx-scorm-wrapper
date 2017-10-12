@@ -15,14 +15,15 @@ npm i ngx-scorm-wrapper
 
 Add ```ScormWrapperService``` to your module ```providers```.
 ```$xslt
-import { ScormWrapperService } from 'ngx-scorm-wrapper';
+import { ScormWrapperModule } from 'ngx-scorm-wrapper';
 
 @NgModule({
   imports: [
+    ScormWrapperModule
   ],
   declarations: [
   ],
-  providers: [ScormWrapperService],
+  providers: [],
   bootstrap: []
 })
 export class AppModule {}
