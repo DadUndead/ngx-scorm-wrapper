@@ -61,16 +61,6 @@
 import { Injectable } from '@angular/core';
 import { WindowRef } from '../window-ref';
 
-// export class ScormWindow extends Window {
-//   public API: object;
-//   public API_1484_11: object;
-// }
-
-export interface ScormWindow {
-  // Allow us to put arbitrary objects in window
-  [key: string]: any;
-}
-
 export type ApiCallFunctionType = (param?: string,
                                    value?: string) => void | string | number | boolean;
 
@@ -79,7 +69,7 @@ export class ScormWrapperService {
   private version = 'Auto';
   private API: object = null;
   private scormVersions = ['Auto', '1.2', '2004'];
-  private win: ScormWindow;
+  private win: any;
 
   constructor(private windowRef: WindowRef) {
     this.win = windowRef.nativeWindow;
@@ -149,7 +139,7 @@ export class ScormWrapperService {
   public getAPIHandle() {
 
     if (this.win.parent && this.win.parent !== this.win) {
-      this.findAPI(this.win.parent as ScormWindow);
+      this.findAPI(this.win.parent);
     }
 
     if (!this.API && this.win.top.opener) {
@@ -182,7 +172,7 @@ export class ScormWrapperService {
     }
   }
 
-  private findAPI(win: ScormWindow) {
+  private findAPI(win: any) {
 
     let findAttempts = 0;
     const findAttemptLimit = 500;
@@ -199,7 +189,7 @@ export class ScormWrapperService {
         break;
       } else if (win.parent && win.parent !== win) {
         findAttempts++;
-        win = win.parent as ScormWindow;
+        win = win.parent;
       }
     }
   }
