@@ -2,6 +2,7 @@
   "extends": ["tslint:recommended"],
   "rulesDirectory": ["node_modules/codelyzer"],
   "rules": {
+    "only-arrow-functions": false,
     "component-class-suffix": true,
     "directive-class-suffix": true,
     "interface-name": false,
