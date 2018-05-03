@@ -159,15 +159,17 @@ export class ScormWrapperService {
       }
     }
 
+    const API: any = this.API;
+
     switch (this.version) {
       case '2004':
         return function() {
-          return this.API[funcname2004].apply(this.API, arguments);
+          return API[funcname2004].apply(API, arguments);
         };
 
       case '1.2':
         return function() {
-          return this.API[funcname12].apply(this.API, arguments);
+          return API[funcname12].apply(API, arguments);
         };
     }
   }
@@ -179,11 +181,11 @@ export class ScormWrapperService {
 
     for (findAttempts; findAttempts < findAttemptLimit; findAttempts++) {
 
-      if (win.API && (this.version === '1.2' || this.version === 'Auto' )) {
+      if (win.API && (this.version === '1.2' || this.version === 'Auto')) {
         this.API = win.API;
         this.version = '1.2';
         break;
-      } else if (win.API_1484_11 && (this.version === '2004' || this.version === 'Auto' )) {
+      } else if (win.API_1484_11 && (this.version === '2004' || this.version === 'Auto')) {
         this.API = win.API_1484_11;
         this.version = '2004';
         break;
