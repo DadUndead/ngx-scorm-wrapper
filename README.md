@@ -7,7 +7,7 @@ This project is based on AngularJS version which can be found here: https://gith
 [![npm version](https://badge.fury.io/js/ngx-scorm-wrapper.svg)](https://badge.fury.io/js/ngx-scorm-wrapper)
 
 ## Quick start
-Install:
+Install (check out the demo implementation -> [ngx-scorm-wrapper-demo](https://github.com/DadUndead/ngx-scorm-wrapper-demo))
 
 ```$xslt
 npm i ngx-scorm-wrapper
