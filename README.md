@@ -28,3 +28,10 @@ import { ScormWrapperModule } from 'ngx-scorm-wrapper';
 })
 export class AppModule {}
 ```
+You can use the ScormWrapperService in any of your components (after you added it to the providers in your app.module). Just add the service to your component class constructor like:
+
+```
+constructor(private scormWrapperService: ScormWrapperService)
+```
+
+You can now use the methods found here: [angularjs-scorm-wrapper](https://github.com/patamechanix/angularjs-scorm-wrapper)
